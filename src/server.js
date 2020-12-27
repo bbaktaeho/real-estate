@@ -5,7 +5,7 @@ import loaders from "./loaders";
   const app = express();
   const port = 9000;
 
-  loaders(app);
+  await loaders(app);
 
   app.listen(port, (err) => {
     if (err) {

@@ -31,6 +31,6 @@ export default (app) => {
   app.use((err, rq, rs, n) => {
     console.error(err.message);
 
-    rs.status(err.status || 500).json({ success: false, message: "error" });
+    rs.status(err.status || 500).json({ success: false, message: err.message });
   });
 };

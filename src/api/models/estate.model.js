@@ -3,6 +3,12 @@ import { executeQuery } from "./pool";
 const TABLE = "trading_and_jeonse";
 
 const Estate = {
+  insertList: async (list) => {
+    const query =
+      "insert into `trading_and_jeonse` (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, aa, ab, ac, ad, ae, af, ag, ah, ai, aj, ak, al, am, an, ao, ap, aq, ar, `as`, `at`, au, av, aw, ax, ay, az,ba, bb, bc, bd, be, bf, bg, bh, bi, bj, bk, bl, bm, bn, bo, bp, bq, br, bs, bt, bu, bv, bw, bx, `by`, bz, ca) values ?;";
+    const values = list.map((e) => Object.values(e));
+    return await executeQuery(query, [values]);
+  },
   getList: async (offset, limit) => {
     const query = `SELECT * FROM ${TABLE} LIMIT ?, ?;`;
     return await executeQuery(query, [offset, limit]);
