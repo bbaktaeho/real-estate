@@ -3,7 +3,7 @@ import morgan from "morgan";
 import cors from "cors";
 import helmet from "helmet";
 import hpp from "hpp";
-import passportConfig from "../passport";
+import passportConfig from "../utils/passport";
 import routes from "../api/routes";
 import passport from "passport";
 

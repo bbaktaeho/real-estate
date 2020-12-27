@@ -1,6 +1,12 @@
 import EstateService from "../services/estate.service";
 
 const EstateController = {
+  upload: async (req, res, next) => {
+    try {
+    } catch (e) {
+      next(e);
+    }
+  },
   getList: async (req, res, next) => {
     try {
       const result = await EstateService.getList(0, 10);
