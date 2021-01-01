@@ -1,5 +1,6 @@
 import express from "express";
 import loaders from "./loaders";
+import { logger } from "./utils/winston";
 
 (async () => {
   const app = express();
@@ -11,6 +12,6 @@ import loaders from "./loaders";
     if (err) {
       console.error(err.message);
       process.exit(1);
-    } else console.log("실행 중");
+    } else logger.info(`Server listening on port ${port}`);
   });
 })();

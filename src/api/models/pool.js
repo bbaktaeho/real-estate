@@ -3,7 +3,7 @@ import config from "../../config";
 
 const pool = mysql2.createPool({
   ...config.db,
-  database: "real_estate",
+  database: config.dbSchema,
   connectionLimit: 10,
   waitForConnections: true,
 });

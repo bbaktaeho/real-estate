@@ -6,6 +6,7 @@ import hpp from "hpp";
 import passportConfig from "../utils/passport";
 import routes from "../api/routes";
 import passport from "passport";
+import { logger } from "../utils/winston";
 
 export default (app) => {
   // Application middleware
@@ -29,8 +30,9 @@ export default (app) => {
 
   // error handler
   app.use((err, rq, rs, n) => {
-    console.error(err.message);
+    logger.error(err.message);
     if (err.errno == 1062) rs.status(409).json({ success: false, message: "중복" });
     else rs.status(err.status || 500).json({ success: false, message: err.message });
   });
+  logger.info("Express loaded");
 };

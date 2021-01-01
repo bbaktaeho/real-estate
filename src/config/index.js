@@ -9,4 +9,5 @@ export default {
   port: parseInt(process.env.PORT, 10),
   excelFieldName: process.env.EXCEL_FIELD_NAME,
   db: dbConfig,
+  dbSchema: process.env.DB_SCHEMA,
 };

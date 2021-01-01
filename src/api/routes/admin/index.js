@@ -4,8 +4,6 @@ const router = Router();
 
 export default (app) => {
   app.use("/admin", router);
-  router.get("/", (req, res) => {
-    res.json({ d: "d" });
-  });
+
   authAdminRouter(router);
 };
