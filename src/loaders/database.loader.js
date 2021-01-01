@@ -104,23 +104,12 @@ export default async () => {
         UNIQUE KEY a (a,f,g)
       ) ENGINE=InnoDB DEFAULT CHARSET=utf8`,
     `
-        CREATE TABLE IF NOT EXISTS admin (
-            id int(11) NOT NULL AUTO_INCREMENT,
-            admin_id varchar(255) NOT NULL,
-            name varchar(255) NOT NULL,
-            password varchar(255) NOT NULL,
-            created_at timestamp NOT NULL DEFAULT current_timestamp(),
-            updated_at timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-            PRIMARY KEY (id),
-            UNIQUE KEY (admin_id)
-        ) ENGINE=InnoDB DEFAULT CHARSET=utf8
-      `,
-    `
       CREATE TABLE IF NOT EXISTS user (
           id int(11) NOT NULL AUTO_INCREMENT,
           user_id varchar(255) NOT NULL,
           name varchar(255) NOT NULL,
           password varchar(255) NOT NULL,
+          admin tinyint NOT NULL,
           created_at timestamp NOT NULL DEFAULT current_timestamp(),
           updated_at timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
           PRIMARY KEY (id),
