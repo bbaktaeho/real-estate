@@ -8,10 +8,20 @@ import { logger } from "./utils/winston";
 
   await loaders(app);
 
+  // process event
+  process.on("SIGINT", async () => {
+    await app.close();
+    process.exit(0);
+  });
+
+  // port binding
   app.listen(port, (err) => {
     if (err) {
       console.error(err.message);
-      process.exit(1);
-    } else logger.info(`Server listening on port ${port}`);
+      process.exit(0);
+    } else {
+      logger.info(`Server listening on port ${port}`);
+      process.send("ready");
+    }
   });
 })();
