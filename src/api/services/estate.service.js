@@ -1,9 +1,13 @@
-import Estate from "../models/estate.model";
+import xlsx from "../../utils/xlsx";
+import Estate from "../../models/estate.model";
 
 const EstateService = {
+  extraction: async (xlsxName) => {
+    const list = xlsx.extraction(xlsxName);
+    return await Estate.insertList(list);
+  },
   getList: async (offset, limit) => {
-    const list = await Estate.getList(+offset, +limit);
-    return list;
+    return await Estate.getList(+offset, +limit);
   },
   getListArgs: async (offset, limit) => {},
   addEstate: async () => {},

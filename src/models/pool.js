@@ -1,9 +1,9 @@
 import mysql2, { format } from "mysql2/promise";
-import config from "../../config";
+import config from "../config";
 
 const pool = mysql2.createPool({
   ...config.db,
-  database: "real_estate",
+  database: config.dbSchema,
   connectionLimit: 10,
   waitForConnections: true,
 });

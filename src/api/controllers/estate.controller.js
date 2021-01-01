@@ -3,6 +3,8 @@ import EstateService from "../services/estate.service";
 const EstateController = {
   upload: async (req, res, next) => {
     try {
+      await EstateService.extraction(req.fileName);
+      res.status(200).json({ success: true });
     } catch (e) {
       next(e);
     }
